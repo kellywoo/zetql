@@ -1,5 +1,16 @@
 {
-  "extends": "tsconfig/react-library.json",
-  "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
+  "extends": "tsconfig/lib.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "outDir": "./dist",
+    "paths": {
+      "@ui/*": ["src/*"]
+    },
+    "typeRoots": [
+      "./node_modules/@types",
+      "../../types"
+    ]
+  },
+  "include": ["src", "vite.config.ts", "../../types"]
 }

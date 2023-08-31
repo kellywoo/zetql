@@ -1,0 +1,9 @@
+#!/bin/bash
+packageDir="$PWD"/packages
+for entry in "$packageDir"/*
+do
+  dist=$entry/dist
+  if [ -d "$dist" ]; then
+     rm -rf "$dist"
+  fi
+done

@@ -1,0 +1,19 @@
+#!/bin/bash
+rm -rf ./node_modules
+appDir="$PWD"/apps
+packageDir="$PWD"/packages
+for entry in "$appDir"/* "$packageDir"/*
+do
+  nodeModules=$entry/node_modules
+  turboCache=$entry/.turbo
+  dist=$entry/dist
+  if [ -d "$nodeModules" ]; then
+    rm -rf "$nodeModules"
+  fi
+  if [ -d "$turboCache" ]; then
+    rm -rf "$turboCache"
+  fi
+  if [ -d "$dist" ]; then
+    rm -rf "$dist"
+  fi
+done

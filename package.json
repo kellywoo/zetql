@@ -1,17 +1,27 @@
 {
-  "private": true,
   "scripts": {
-    "build": "turbo run build",
+    "examples": "npm run start -w examples",
+    "build:lib": "npm run clean:dist && turbo run build --filter=@zetql/core  --filter=@zetql/react",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "clean": ". scripts/clean",
+    "clean:dist": ". scripts/clean-dist",
+    "format": "prettier \"**/*.{ts,tsx}\" --write",
+    "test": "turbo run test",
+    "deploy": "turbo run build && turbo run deploy",
+    "pack": "npm run pack:core && npm run pack:react",
+    "pack:react": "turbo run build --filter=@zetql/react && npm pack --pack-destination ~/pkg -w @zetql/react",
+    "pack:core": "turbo run build --filter=@zetql/core && npm pack --pack-destination ~/pkg -w @zetql/coret",
+    "echo": "turbo run echo"
   },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",
+    "@types/node": "^20.4.5",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
-    "prettier": "^2.5.1",
-    "turbo": "latest"
+    "prettier": "^2.8.8",
+    "turbo": "latest",
+    "typescript": "^5.1.6"
   },
   "name": "zetql",
   "packageManager": "npm@9.3.1",

@@ -1,0 +1,15 @@
+{
+  "extends": "tsconfig/lib.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "outDir": "./dist",
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*", "../core/src/**/*", "vite.config.ts"],
+  "exclude": [
+    "**/tests/*",
+    "**/*.test.ts",
+    "../core/src/**/tests"
+  ]
+}

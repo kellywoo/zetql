@@ -1,0 +1,10 @@
+{
+  "extends": "tsconfig/lib.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "skipLibCheck": true
+  },
+  "include": ["./src/**/*", "./vite.config.ts"],
+  "exclude": ["**/tests/*", "**/*.test"]
+}

@@ -1,0 +1,57 @@
+{
+  "name": "@zetql/core",
+  "version": "0.1.1-alpha",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/zetql-core.umd.js",
+  "module": "./dist/zetql-core.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/zetql-core.es.js",
+      "require": "./dist/zetql-core.umd.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc && vite build",
+    "format": "prettier \"src/**/*.ts\" --write",
+    "preview": "vite preview",
+    "deploy": "npm publish --access=public",
+    "test": "jest src/libs",
+    "echo": "echo test core"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.22.5",
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.4.5",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.3.1",
+    "jest": "^29.6.2",
+    "ts-jest": "^29.1.1"
+  },
+  "dependencies": {
+    "fast-equals": "^5.0.1"
+  },
+  "description": "",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zetql/zetql.git",
+    "directory": "packages/core"
+  },
+  "author": {
+    "name": "Kelly Woo",
+    "email": "kelly.kh.woo@gmail.com",
+    "url": "https://kelly-kh-woo.medium.com/"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

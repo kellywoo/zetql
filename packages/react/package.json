@@ -1,0 +1,63 @@
+{
+  "name": "@zetql/react",
+  "version": "0.1.2",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/zetql-react.umd.js",
+  "module": "./dist/zetql-react.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/zetql-react.mjs",
+      "require": "./dist/zetql-react.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsc && vite build",
+    "lint": "eslint  --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "format": "prettier \"src/**/*.ts\" --write",
+    "preview": "vite preview",
+    "deploy": "npm publish --access=public",
+    "echo": "echo test"
+  },
+  "peerDependencies": {
+    "@types/react": ">=18.0",
+    "react": ">=18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "react": "^18.0.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.3.1"
+  },
+  "description": "",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zetql/zetql.git",
+    "directory": "packages/react"
+  },
+  "author": {
+    "name": "Kelly Woo",
+    "email": "kelly.kh.woo@gmail.com",
+    "url": "https://kelly-kh-woo.medium.com/"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
