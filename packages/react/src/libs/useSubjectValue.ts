@@ -1,6 +1,5 @@
 import { useRef, useSyncExternalStore } from 'react';
-import { BoundSubject } from './internalCore.ts';
-import { shallowEqual } from 'fast-equals';
+import { BoundSubject, shallowEqual } from './internalCore.ts';
 
 export function useSubjectValue<S>(query: BoundSubject<S>): S;
 export function useSubjectValue<S, R>(

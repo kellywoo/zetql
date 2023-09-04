@@ -1,6 +1,6 @@
 module.exports = {
     parser: 'typescript',
-    useTabs: true,
+    useTabs: false,
     tabWidth: 2,
     printWidth: 80,
     singleQuote: true,

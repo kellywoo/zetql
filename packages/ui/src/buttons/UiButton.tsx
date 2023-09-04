@@ -2,38 +2,38 @@ import styled from 'styled-components';
 import { classnames } from '@ui/helpers/classnames.ts';
 import { SquareButton } from '@ui/buttons/SquareButton.tsx';
 import {
-	AppColor,
-	BlueColor,
-	GrayColor,
-	GreenColor,
-	RedColor,
+  AppColor,
+  BlueColor,
+  GrayColor,
+  GreenColor,
+  RedColor,
 } from '@ui/style';
 
 interface ButtonAttr {
-	fillType?: 'filled' | 'line' | 'grayline' | 'ghost' | 'cute';
-	fillColor?: 'primary' | 'green' | 'sky' | 'blue' | 'default' | 'red';
-	block?: boolean;
+  fillType?: 'fill' | 'line' | 'grayline' | 'ghost' | 'cute';
+  fillColor?: 'primary' | 'green' | 'sky' | 'blue' | 'default' | 'red';
+  block?: boolean;
 }
 export const UiButton = styled(SquareButton)
-	.withConfig({
-		shouldForwardProp: (prop) => !['fillType', 'fillColor'].includes(prop),
-	})
-	.attrs<ButtonAttr>(({ fillColor, fillType }) => {
-		return {
-			type: 'button',
-			className: classnames(
-				`is-${fillType || 'filled'}`,
-				`is-${fillColor || 'primary'}`
-			),
-		};
-	})<ButtonAttr>`
+  .withConfig({
+    shouldForwardProp: (prop) => !['fillType', 'fillColor'].includes(prop),
+  })
+  .attrs<ButtonAttr>(({ fillColor, fillType }) => {
+    return {
+      type: 'button',
+      className: classnames(
+        `is-${fillType || 'fill'}`,
+        `is-${fillColor || 'primary'}`
+      ),
+    };
+  })<ButtonAttr>`
 	min-width: 60px;
-	&.is-filled {
+	&.is-fill {
 		color: #fff;
 		background-color: var(--rgb-main);
 		border-color: var(--rgb-main);
 	}
-	&.is-lined {
+	&.is-line {
 		color: var(--rgb-main);
 		background-color: rgba(255, 255, 255, 0.8);
 		border-color: var(--rgb-main);

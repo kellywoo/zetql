@@ -145,27 +145,27 @@ const juiceTypes = [
   },
 ]
 
-const desertTypes = [
+const dessertTypes = [
   {
-    categoryId: "cafe.desert",
+    categoryId: "cafe.dessert",
     productId: "15",
     name: "딸기 마카롱",
     price: 2000,
   },
   {
-    categoryId: "cafe.desert",
+    categoryId: "cafe.dessert",
     productId: "16",
     name: "초코 마카롱",
     price: 2000,
   },
   {
-    categoryId: "cafe.desert",
+    categoryId: "cafe.dessert",
     productId: "17",
     name: "초코칩 쿠키",
     price: 1500,
   },
   {
-    categoryId: "cafe.desert",
+    categoryId: "cafe.dessert",
     productId: "18",
     name: "아몬드 쿠키",
     price: 1500,
@@ -186,8 +186,8 @@ export const categoryList = [
     name: "Juice",
   },
   {
-    id: "cafe.desert",
-    name: "Desert",
+    id: "cafe.dessert",
+    name: "Dessert",
   },
 ]
 
@@ -195,7 +195,7 @@ export const productList = [
   ...coffeeTypes,
   ...milkteaTypes,
   ...juiceTypes,
-  ...desertTypes,
+  ...dessertTypes,
 ]
 
 export const couponList = [

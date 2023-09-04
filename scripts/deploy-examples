@@ -1,0 +1,13 @@
+#!/bin/bash
+date=$(date '+%Y-%m-%d')
+echo "$date"
+buildDir="$PWD"/apps/examples/build
+cd "$buildDir" || return
+if [ -d "$buildDir/.git" ]; then
+  rm -rf "./.git"
+fi
+git init
+git add .
+git commit -m "deploy on $date"
+result=$(git push https://$DEMO_ID:$DEMO_TOKEN@$DEMO_REMOTE_ADDRESS main -f)
+echo "$result"

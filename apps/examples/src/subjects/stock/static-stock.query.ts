@@ -2,38 +2,37 @@ import { fetchClient } from '@/utils/fetchClient.ts';
 import { createInfiniteQuery } from '@zetql/react';
 import { StockModel } from '@/models/Stock.model.ts';
 interface StockList {
-	stocks: Array<StockModel>;
-	hasNext: boolean;
+  stocks: Array<StockModel>;
+  hasNext: boolean;
 }
 const fetchStocks: ({
-	size,
-	offset,
+  size,
+  page,
 }: {
-	size: number;
-	offset: number;
-}) => Promise<StockList> = ({ size, offset }) => {
-	return fetchClient(
-		`/stocks-static-cursor?size=${size}&offset=${offset}`
-	).then(({ data, hasNext }) => {
-		return { stocks: data, hasNext };
-	});
+  size: number;
+  page: number;
+}) => Promise<StockList> = ({ size, page }) => {
+  return fetchClient(`/stocks-static-cursor?size=${size}&page=${page}`).then(
+    ({ data, hasNext }) => {
+      return { stocks: data, hasNext };
+    }
+  );
 };
 export const staticStockQuery = createInfiniteQuery<
-	StockList,
-	{ size: number; offset: number }
+  StockList,
+  { size: number; page: number }
 >({
-	query: fetchStocks,
-	normalize: (pages) => {
-		return pages.reduce((p: StockModel[], c) => {
-			return p.concat(c.data.stocks);
-		}, []);
-	},
-	cacheKeyBy(cursor) {
-		return cursor.offset;
-	},
-	getNextCursor: ({ cursor, data }) => {
-		return data.hasNext
-			? { ...cursor, offset: cursor.offset + cursor.size }
-			: null;
-	},
+  query: fetchStocks,
+  cursorMode: 'static',
+  normalize: (pages) => {
+    return pages.reduce((p: StockModel[], c) => {
+      return p.concat(c.data.stocks);
+    }, []);
+  },
+  cacheKeyBy(cursor) {
+    return cursor.page;
+  },
+  getNextCursor: ({ cursor, data }) => {
+    return data.hasNext ? { ...cursor, page: cursor.page + 1 } : null;
+  },
 });
